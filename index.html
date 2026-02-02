@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Márcia Hisae - Imobiliária</title>
+  <meta name="description" content="Márcia Hisae - Venda, Locação e Financiamento. Transformando sonhos em realidade.">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-inner container">
+      <a class="brand" href="#/">
+        <img src="assets/logo.png" alt="Márcia Hisae" class="logo" />
+        <div class="brand-text">
+          <div class="brand-title">Márcia Hisae</div>
+          <div class="brand-sub">Venda • Locação • Financiamento</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="main-nav desktop-nav">
+        <a class="nav-link" href="#/">Home</a>
+        <a class="nav-link" href="#/imoveis">Imóveis</a>
+        <a class="nav-link" href="#/marcia">Márcia Hisae</a>
+        <a class="nav-link" href="#/certificados">Certificados</a>
+        <a class="nav-link" href="#/principios">Princípios</a>
+        <a class="nav-link" href="#/atendimento">Atendimento</a>
+      </nav>
+
+      <!-- Mobile burger -->
+      <button id="mobile-burger" class="burger-btn" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay hidden" aria-hidden="true">
+    <div class="mobile-menu-panel">
+      <button id="mobile-close" class="mobile-close-btn" aria-label="Fechar menu">✕</button>
+      <nav class="mobile-nav-links">
+        <a class="mobile-link" href="#/">Home</a>
+        <a class="mobile-link" href="#/imoveis">Imóveis</a>
+        <a class="mobile-link" href="#/marcia">Márcia Hisae</a>
+        <a class="mobile-link" href="#/certificados">Certificados</a>
+        <a class="mobile-link" href="#/principios">Princípios</a>
+        <a class="mobile-link" href="#/atendimento">Atendimento</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- APP ROOT -->
+  <main id="app">
+    <div class="container"><!-- script.js injeta aqui --></div>
+  </main>
+
+  <!-- SHARE MENU (não usado mais, mantido por compat) -->
+  <div id="share-popover" class="share-popover hidden" aria-hidden="true"></div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox-overlay" class="lightbox-overlay hidden" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Fechar imagem">✕</button>
+      <button id="lightbox-prev" class="lightbox-nav left" aria-label="Imagem anterior">‹</button>
+      <img id="lightbox-img" class="lightbox-img" alt="visualização" />
+      <button id="lightbox-next" class="lightbox-nav right" aria-label="Próxima imagem">›</button>
+    </div>
+  </div>
+
+  <!-- WHATSAPP FLOAT BUTTON + MODAL -->
+  <div class="whats-float">
+    <button id="open-whats" class="whats-btn" title="Contato via WhatsApp" aria-label="Contato via WhatsApp">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="white" aria-hidden="true"><path d="M16 2C8.832 2 3 7.832 3 15c0 2.462.688 4.85 1.99 6.93L3 30l8.324-2.918A13.02 13.02 0 0 0 16 28c7.168 0 13-5.832 13-13S23.168 2 16 2Zm6.945 18.474c-.297.84-1.74 1.61-2.422 1.682-.62.064-1.402.09-2.266-.14-.522-.138-1.19-.386-2.04-.758-3.593-1.55-5.93-5.16-6.116-5.403-.18-.244-1.46-1.94-1.46-3.7 0-1.76.923-2.63 1.25-2.992.328-.364.717-.455.957-.455.24 0 .48 0 .69.013.22.01.517-.083.81.62.297.713 1.01 2.466 1.1 2.647.09.182.148.39.03.633-.118.244-.178.39-.356.6-.18.208-.375.466-.535.624-.18.178-.367.37-.158.73.21.363.93 1.54 2 2.5 1.37 1.22 2.52 1.61 2.89 1.79.37.178.585.148.8-.09.21-.236.92-1.073 1.167-1.44.238-.356.5-.296.83-.178.327.118 2.07 1.01 2.43 1.198.356.177.59.266.68.415.09.148.09.86-.21 1.7Z"/></svg>
+    </button>
+  </div>
+
+  <div id="whats-modal-overlay" class="modal-back hidden" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button id="whats-modal-close" class="modal-x" aria-label="Fechar formulário">✕</button>
+
+      <h3 class="modal-title">Contato via WhatsApp</h3>
+      <p class="muted center">Informe seu primeiro nome e escolha o imóvel de interesse.</p>
+
+      <div class="space-y-2">
+        <div class="field">
+          <label>Primeiro nome</label>
+          <input id="w-name" placeholder="Ex: João" />
+        </div>
+
+        <div class="field" id="w-select-wrap">
+          <label>Imóvel</label>
+          <select id="w-property"></select>
+        </div>
+
+        <div class="field hidden" id="w-locked-prop">
+          <label>Imóvel</label>
+          <input id="w-locked-value" disabled />
+        </div>
+
+        <div id="w-other-field" class="field hidden">
+          <label>Descreva o imóvel</label>
+          <input id="w-other" placeholder="Ex: Casa com 3 quartos" />
+        </div>
+
+        <div class="flex gap-2">
+          <button id="w-send" class="btn btn-primary">Enviar via WhatsApp</button>
+          <button id="w-cancel" class="btn-ghost">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- COLUNA ESQUERDA -->
+    <div class="footer-col">
+      <div class="footer-title">Márcia Hisae</div>
+      <div class="footer-line">CRECI PJ 36766</div>
+      <div class="footer-line">CRECI PF 176234</div>
+
+      <div class="footer-subtitle">Uma Mensagem</div>
+      <div class="footer-line">"A porta que Deus abriu ninguém fecha" 🙏</div>
+
+      <div class="footer-social">
+        <a class="insta-link" href="https://www.instagram.com/marciahisae" target="_blank">
+          <img class="ig-icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          <span>@marciahisae</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- COLUNA DIREITA -->
+    <div class="footer-col">
+      <div class="footer-subtitle">Atendimento</div>
+      <div class="footer-line">Segunda à Sábado</div>
+      <div class="footer-line">09:00 - 18:00</div>
+
+     <div class="footer-subtitle" style="margin-top:12px;">Endereços</div>
+
+<a href="https://maps.google.com/?cid=5732741191659234988&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+   target="_blank"
+   class="address-link">
+   Rua José Versolato, 111 - Centro, São Bernardo do Campo - SP
+</a>
+
+<a href="https://maps.google.com/?cid=2573567265377490517&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+   target="_blank"
+   class="address-link">
+   Av. Paulista, 2073 - Jardins - SP
+</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-note">
+    © 2025 Márcia Hisae. Todos os direitos reservados.
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
