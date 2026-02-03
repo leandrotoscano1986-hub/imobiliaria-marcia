@@ -146,7 +146,7 @@
             btn.innerText = "Enviando...";
             btn.disabled = true;
 
-            const response = await fetch('http://localhost:3000/api/imoveis', {
+            const response = await fetch('https://imobiliaria-marcia.onrender.com/api/imoveis', {
                 method: 'POST',
                 body: formData
             });
@@ -161,7 +161,7 @@
                 alert('❌ Erro: ' + (resultado.error || 'Erro interno'));
             }
         } catch (err) {
-            alert('🚀 Servidor Offline! Ligue o servidor no terminal com node server.js');
+            alert('🚀 Erro de conexão! Verifique se o servidor no Render está ativo.');
         } finally {
             btn.innerText = "Salvar no Banco SQL";
             btn.disabled = false;
